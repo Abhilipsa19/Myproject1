@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table, td, th, tr{
+            border: 2px dotted blueviolet;
+            border-collapse: collapse;
+        }
+    </style>
+    <center>
+        <h1>Welcome To Get Employees Page</h1>
+
+        {% if all_users %}
+            <table>
+                <tr>    
+                    <th>EMPNO</th>
+                    <th>Ename</th>
+                    <th>Pno</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                </tr>
+                {% for user in all_users %}
+            <tr>
+                <td>{{user.empno}}</td>
+                <td><a href="/get{{user.empno}}">{{user.ename}}</a></td>
+                <td>{{user.pno}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.add}}</td>
+                <td>{{user.gender}}</td>
+            </tr>
+        {% endfor %}
+            </table>
+        
+        {% else %}
+            <h1>No Users Registered Yet</h1>
+        {% endif %}
+
+
+    </center>
+</body>
+</html>
